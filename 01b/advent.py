@@ -44,7 +44,7 @@ def processLineOfInputIntoStruct(line, struct):
     #line = line.lower()
     toReplace,replaceWith = firstNumber(line)
     while replaceWith > 0:
-      line = line.replace(toReplace,str(replaceWith))
+      line = line.replace(toReplace,str(replaceWith)+toReplace[-1])
       toReplace,replaceWith = firstNumber(line)
     # following code finds the first and last digits and adds them
     #print(line[0].isdigit())
@@ -76,8 +76,7 @@ def processInputFile(filePath):
         for x in f:
             processLineOfInputIntoStruct(x, struct)
             yz = yz + 1
-            if yz > 50:
-                break
+
     return struct
 
 def processStruct(struct):
